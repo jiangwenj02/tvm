@@ -25,8 +25,8 @@ channels:
 
 # The packages to install to the environment
 dependencies:
-  - conda-build
-  - git
+  # - conda-build
+  # - git
   - llvmdev ==10.0.0
   - numpy
   - pytest

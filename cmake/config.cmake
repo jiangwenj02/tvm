@@ -181,7 +181,7 @@ set(USE_EDGETPU OFF)
 set(USE_CUDNN OFF)
 
 # Whether use cuBLAS
-set(USE_CUBLAS OFF)
+set(USE_CUBLAS ON)
 
 # Whether use MIOpen
 set(USE_MIOPEN OFF)
@@ -209,8 +209,8 @@ set(USE_DNNL_CODEGEN OFF)
 #                       operators to Arm Compute Library. OFF/ON
 # USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR - Run Arm Compute Library annotated functions via the ACL
 #                                     runtime. OFF/ON/"path/to/ACL"
-set(USE_ARM_COMPUTE_LIB OFF)
-set(USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR OFF)
+set(USE_ARM_COMPUTE_LIB ON)
+set(USE_ARM_COMPUTE_LIB_GRAPH_EXECUTOR ON)
 
 # Whether to build with Arm Ethos-N support
 # Possible values:

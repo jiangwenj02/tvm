@@ -60,6 +60,7 @@ img = cv2.resize(img, (in_size, in_size))
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = np.transpose(img / 255.0, [2, 0, 1])
 img = np.expand_dims(img, axis=0)
+img_tensor = torch.from_numpy(img)
 
 input_name = "input0"
 shape_list = [(input_name, input_shape)]
@@ -75,7 +76,7 @@ dev = tvm.cpu()
 vm = VirtualMachine(vm_exec, dev)
 vm.set_input("main", **{input_name: img})
 start = time.time()
-out = model(inp)
+out = model(img_tensor)
 end = time.time()
 print(end - start)
 

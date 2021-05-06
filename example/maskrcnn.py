@@ -66,7 +66,7 @@ input_name = "input0"
 shape_list = [(input_name, input_shape)]
 mod, params = relay.frontend.from_pytorch(script_module, shape_list)
 
-target = "llvm"
+target = "llvm -mcpu=skylake-avx512 -libs=mkl"
 
 with tvm.transform.PassContext(opt_level=3, disabled_pass=["FoldScaleAxis"]):
     vm_exec = relay.vm.compile(mod, target=target, params=params)

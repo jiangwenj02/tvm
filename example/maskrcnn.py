@@ -11,6 +11,8 @@ import cv2
 import torch
 import torchvision
 
+import time
+
 in_size = 300
 
 input_shape = (1, 3, in_size, in_size)
@@ -72,7 +74,15 @@ with tvm.transform.PassContext(opt_level=3, disabled_pass=["FoldScaleAxis"]):
 dev = tvm.cpu()
 vm = VirtualMachine(vm_exec, dev)
 vm.set_input("main", **{input_name: img})
+start = time.time()
+out = model(inp)
+end = time.time()
+print(end - start)
+
+start = time.time()
 tvm_res = vm.run()
+end = time.time()
+print(end - start)
 
 score_threshold = 0.9
 boxes = tvm_res[0].asnumpy().tolist()

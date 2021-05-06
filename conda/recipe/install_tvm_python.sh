@@ -19,5 +19,5 @@
 set -e
 set -u
 
-cd ${SRC_DIR}/python
-python setup.py install --single-version-externally-managed --record=/tmp/record.txt
+cd ${SRC_DIR}/work/python
+${PYTHON} setup.py install --single-version-externally-managed --record=/tmp/record.txt

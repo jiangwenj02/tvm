@@ -54,7 +54,7 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DINSTALL_DEV=ON \
       -DUSE_LIBBACKTRACE=AUTO \
       ${GPU_OPT} ${TOOLCHAIN_OPT} \
-      ${SRC_DIR}
+      ${SRC_DIR}/work
 
 make -j${CPU_COUNT}
 cd ..
